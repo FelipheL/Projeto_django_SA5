@@ -1,0 +1,36 @@
+{% extends "usuarios/base.html" %}
+{% block conteudo %}
+<div class="container" style="text-align: center; background-color: rgba(255, 255, 255, 0.699); width: 25vw; border-radius: 20px; padding: 30px; margin-bottom: 250px;">
+    <button class="btn btn-danger" style="padding: 10px 20px; font-weight: bold; border-radius: 20px; font-size: 20px">
+        <a href='{% url 'cadastro' %}' style="text-decoration: none; color: white;">Cadastro</a>
+    </button>
+    <button class="btn btn-danger" style="margin: 10px 10px; padding: 10px 20px; font-weight: bold; border-radius: 20px; font-size: 20px">
+        <a href="/regras" style="text-decoration: none; color: white;">Regras do campeonato</a>
+    </button>
+    <div class='col-sn-6'>
+        <input type="text" id="search" class="form-control-sm" placeholder="Busca"  style="font-size: 20px; margin-bottom: 10px; width: 90%; height: 40px; border: solid 5px red; border-radius: 10px;">
+        <input type="submit" style="margin: 10px 10px; padding: 10px 20px; font-weight: bold; border-radius: 20px; font-size: 20px" class="btn btn-danger" value="buscar">
+    </div>
+    <h1>Candidatos cadastrados:</h1>
+    <table class="table table-bordered table-striped">
+        <tr style="font-size: 20px;">
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Idade</th>
+            <th>Id</th>
+            <th>Editar</th>
+            <th>Deletar</th>
+        </tr>
+        {% for usuario in usuarios%}
+        <tr style="font-size: 20px;">
+            <td>{{usuario.id_usuario}}</td>
+            <td>{{usuario.nome}}</td>
+            <td>{{usuario.idade}}</td>
+            <td>{{usuario.id_usuario}}</td>
+            <td><a href='{% url 'editar' usuario.id_usuario %}'>Editar</a></td>
+            <td><a href='{% url 'delete' usuario.id_usuario %}'>Deletar</a></td>
+        </tr>
+        {% endfor %}
+    </table>   
+</div>
+{% endblock %}

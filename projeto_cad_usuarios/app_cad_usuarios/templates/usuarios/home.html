@@ -1,0 +1,16 @@
+{% extends "usuarios/base.html" %}
+{% block conteudo %}
+<form action="{% url 'listagem_usuarios' %}" method="post">
+      {% csrf_token %}
+      <div style="text-align: center; background-color: rgba(255, 255, 255, 0.699); width: 25vw; border-radius: 20px; padding: 30px; margin-bottom: 250px;" class="container">
+        <h1>Cadastro de Candidatos</h1>
+        <Label style="font-weight: bold; font-size: 20px;">Nome:</Label><br>
+        <input name="nome" class="form-control-sm" type="text" style="font-size: 20px; margin-bottom: 20px; width: 90%; height: 40px; border: solid 5px red; border-radius: 10px;" required><br>
+        <Label style="font-weight: bold; font-size: 20px;">Idade</Label><br>
+        <input name="idade" class="form-control-sm" type="number" style="font-size: 20px; margin-bottom: 20px; width: 100px; height: 40px; border: solid 5px red; border-radius: 10px;" required><br>
+        <a href={% url 'save' %}>
+          <button class="form-control-sm btn btn-danger" style="padding: 10px 20px; font-weight: bold; border-radius: 20px; font-size: 20px; margin-bottom: 30px;">Enviar!</button>
+        </a>     
+      </div>
+    </form>
+{% endblock %}

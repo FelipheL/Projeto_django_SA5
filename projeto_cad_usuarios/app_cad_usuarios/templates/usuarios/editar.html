@@ -1,0 +1,14 @@
+{% extends "usuarios/base.html" %}
+{% block conteudo %}
+  <form action="{% url 'update' usuario.id_usuario %}" method="POST">
+    {% csrf_token %}
+    <div style="text-align: center; background-color: rgba(255, 255, 255, 0.699); width: 25vw; border-radius: 20px; padding: 30px;" class="container">
+      <h1>Edição de candidatos</h1>
+      <label style="font-weight: bold; font-size: 20px;">Nome:</label><br>
+      <input name="nome" id="nome" class="form-control-sm" value="{{ usuario.nome }}" type="text" style="font-size: 20px; margin-bottom: 20px; width: 90%; height: 40px; border: solid 5px red; border-radius: 10px;" required><br>
+      <label style="font-weight: bold; font-size: 20px;">Idade:</label><br>
+      <input name="idade" id="idade" class="form-control-sm" value="{{ usuario.idade }}" type="number" style="font-size: 20px; margin-bottom: 20px; width: 100px; height: 40px; border: solid 5px red; border-radius: 10px;" required><br>
+      <button class="form-control-sm btn btn-danger" type="submit" style="padding: 10px 20px; font-weight: bold; border-radius: 20px; font-size: 20px">Atualizar!</button>
+    </div>
+  </form>
+{% endblock %}
